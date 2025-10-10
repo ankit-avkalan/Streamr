@@ -1,5 +1,6 @@
 # **Streamr**
-![Screenshot_9-10-2025_23452_localhost](https://github.com/user-attachments/assets/8c43f01c-688b-4baf-8126-6e4934e7bb4b)
+ 
+![Uploading Screenshot_9-10-2025_23452_localhost.jpeg…]()
 
 **Streamr is a slaeek and responsive movie discovery web app that lets users search, explore, and view trending movies using data fetched from The Movie Database (TMDB) API. Built with React.js and designed for a seamless, cinematic user experience.**
 
@@ -114,3 +115,4 @@ Visit: [http://localhost:5173]
 ### 🪪 License
 
 This project is licensed under the MIT License – feel free to use and modify for personal or educational purposes
+
