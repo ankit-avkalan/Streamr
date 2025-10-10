@@ -28,7 +28,6 @@ html {
         box-sizing: border-box;
         min-height: mas(884px, 100dvh);
         font-optical-sizing: auto;
-        -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         transition: background 0.3s ease-in-out;
     }
