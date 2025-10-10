@@ -74,13 +74,6 @@ const SideBar = () => {
           </a>
         ))}
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
-          className="text-[#b9b9b9] hover:text-[#e50914] transition-all text-xl"
-        >
-          {isOpen ? <IoClose /> : <RxHamburgerMenu />}
-        </button>
       </div>
 
       {/* ===== Mobile Sidebar Overlay ===== */}
