@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+@theme {
+    --primary: Spline Sans, 'sans-serif';
+    --color-primary: #b70710/* Netflix Red */;
+    --color-secondary: #170102 /* Dark Red */;
+    --text-primary: #7d7d7d /* grey */;
+    --text-secondary: #b9b9b9 /* Light Grey */;
+    --background-primary: #141414 /* Dark Grey */;
+    --background-secondary: #1c1c1c /* Medium Grey */;
+    --background--tertiary: #080808 /* Almost Black */;
+}
+
+@layer base {
+    body {
+        font-family: var(--primary), ui-sans-serif, system-ui, sans-serif;
+        background-color: var(--background-primary);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: mas(884px, 100dvh);
+        font-optical-sizing: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background 0.3s ease-in-out;
+    }
+}
