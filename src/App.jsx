@@ -175,7 +175,7 @@ const App = () => {
               >
                 <div className="relative flex flex-col px-6 sm:px-10 md:px-20 mb-10 sm:mb-16">
                   <motion.h1 
-                    className="text-5xl sm:text-3xl md:text-4xl font-extrabold mb-4"
+                    className="text-4xl sm:text-2xl md:text-3xl font-extrabold mb-4"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -183,7 +183,7 @@ const App = () => {
                     {selectedMovie ? selectedMovie.title : "The House of The Dragon"}
                   </motion.h1>
                   <motion.p 
-                    className="max-w-xl sm:max-w-2xl text-l sm:text-base font-mediumbold"
+                    className="max-w-xl sm:max-w-2xl text-sm sm:text-sm font-medium bold"
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
