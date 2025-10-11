@@ -201,7 +201,7 @@ const App = () => {
                 <h3 className="font-bold text-3xl md:text-3xl sm:text-2xl">Trending Movies</h3>
                 {trendingMovies.length > 0 && (
                   <motion.ul 
-                    className="flex gap-4 sm:gap-6 overflow-x-auto"
+                    className="flex flex-shrink gap-4 sm:gap-6 w-full"
                     initial="hidden"
                     animate="visible"
                     variants={{
@@ -214,12 +214,12 @@ const App = () => {
                     {trendingMovies.map((movie, index) => (
                       <motion.li 
                         key={movie.$id}
-                        className="flex-shrink-0"
+                        className="flex flex-col gap-2 sm:gap-3"
                         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                         <img 
                           src={movie.poster_url} 
                           alt={movie.title} 
-                          className="w-32 sm:w-40 md:w-48 object-cover"
+                          className="w-auto object-cover rounded-xl"
                         />
                       </motion.li>
                     ))}

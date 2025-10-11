@@ -61,7 +61,7 @@ const NavBar = () => {
             transition={{ duration: 0.3 }}
             className="absolute top-16 left-0 w-full h-screen backdrop-blur-md md:hidden z-40"
           >
-            <ul className="flex flex-col items-center py-4 gap-4">
+            <ul className="flex flex-col items-end py-4 px-6 gap-4 bg-black">
               {navLinks.map((link) => (
                 <motion.li
                   key={link.label}
