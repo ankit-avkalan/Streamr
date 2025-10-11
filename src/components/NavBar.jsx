@@ -21,7 +21,7 @@ const NavBar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        Streamr
+        STEAMR
       </motion.h1>
 
       {/* Desktop Nav */}

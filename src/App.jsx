@@ -229,7 +229,11 @@ const App = () => {
 
               {/* all movies */}
               <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:px-12">
+<<<<<<< HEAD
                 <h3 className="font-bold text-3xl md:text-3xl sm:text-2xl">All Movies</h3>
+=======
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">All Movies</h3>
+>>>>>>> 78861155040cf48cc1190d36b96e2d3557949bf3
 
                 {isLoading ? (
                   <Spinner />
