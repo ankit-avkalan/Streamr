@@ -146,7 +146,7 @@ const App = () => {
           <div className="flex-1 w-full">
             {/* nav bar */}
             <motion.header 
-              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8"
+              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8 bg-black"
               initial={{ y: -40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
