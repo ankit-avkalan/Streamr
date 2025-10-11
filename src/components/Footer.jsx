@@ -9,7 +9,7 @@ const Footer = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <p className="text-[#b9b9b9] text-xs sm:text-sm md:text-base">
+      <p className="font-bold text-sm sm:text-sm md:text-base">
         Made with{" "}
         <span className="text-[#b70710] animate-pulse">❤️</span> by{" "}
         <span className="font-semibold hover:text-[#ffffff] duration-300 ease-linear">

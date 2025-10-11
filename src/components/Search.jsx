@@ -11,7 +11,7 @@ const Search = ({ searchTerm, setSearchTerm }) => {
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
       {/* Search Icon (visible on small screens) */}
-      <FaSearch className="absolute left-3 text-[#7d7d7d] text-sm sm:hidden" />
+      <FaSearch className="absolute left-3 text-sm" />
 
       <input
         type="text"
@@ -19,10 +19,10 @@ const Search = ({ searchTerm, setSearchTerm }) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="
-          rounded-full border border-[#7d7d7d] py-2 pl-9 pr-3 
-          text-sm text-[#b9b9b9] placeholder-[#7d7d7d] 
-          focus:outline-none focus:ring-1 focus:ring-[#170102] 
-          duration-300 ease-linear bg-transparent
+          rounded-full border border-[#ffffff] py-2 pl-9 pr-3 
+          text-sm placeholder-[#7d7d7d] 
+          focus:outline focus:ring-3 focus:ring-[gradient-to-r from-pink-500 via-purple-500 to-yellow-500] 
+          duration-300 ease-linear
           w-full sm:w-72 md:w-80 lg:w-96
         "
       />

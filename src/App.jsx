@@ -126,7 +126,7 @@ const App = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="min-h-screen flex flex-col font-[Spline_Sans]"
+        className="min-h-screen flex flex-col text-white scroll-smooth"
       >
         <div className="flex w-full">
 
@@ -146,7 +146,7 @@ const App = () => {
           <div className="flex-1 w-full">
             {/* nav bar */}
             <motion.header 
-              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center bg-[#141414] py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8"
+              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8"
               initial={{ y: -40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -157,16 +157,16 @@ const App = () => {
               </div>
             </motion.header>
 
-            <main className="flex flex-col gap-12 px-4 sm:px-8 md:12">
+            <main className="flex flex-col gap-12">
               {/* hero section  */}
               <motion.section 
                 key={selectedMovie ? selectedMovie.id : "default-hero"}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="relative flex flex-col justify-end rounded-2xl bg-cover bg-no-repeat h-[60vh] sm:h-[70vh] md:h-[80vh]"
+                className="relative flex flex-col justify-end bg-cover bg-no-repeat h-[60vh] sm:h-[70vh] md:h-[80vh]"
                 style={{
-                  backgroundImage: `linear-gradient(to top, #141414, rgba(20,20,20,0.2)), url(${
+                  backgroundImage: `linear-gradient(to top, #000000, rgba(0, 0, 0, 0.2)), url(${
                     selectedMovie
                       ? `${IMAGE_BASE_URL}${selectedMovie.backdrop_path || selectedMovie.poster_path}`
                       : '/hero.jpg'
@@ -175,7 +175,7 @@ const App = () => {
               >
                 <div className="relative flex flex-col px-6 sm:px-10 md:px-20 mb-10 sm:mb-16">
                   <motion.h1 
-                    className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#b9b9b9]"
+                    className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -183,7 +183,7 @@ const App = () => {
                     {selectedMovie ? selectedMovie.title : "The House of The Dragon"}
                   </motion.h1>
                   <motion.p 
-                    className="max-w-xl sm:max-w-2xl text-sm sm:text-base text-[#d1d1d1]"
+                    className="max-w-xl sm:max-w-2xl text-sm sm:text-base"
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -197,8 +197,8 @@ const App = () => {
               </motion.section>
               
               {/* treding movies */}
-              <section className="flex flex-col gap-4 sm:gap-6">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#b9b9b9]">Trending Movies</h3>
+              <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:12">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">Trending Movies</h3>
                 {trendingMovies.length > 0 && (
                   <motion.ul 
                     className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide"
@@ -228,8 +228,8 @@ const App = () => {
               </section>
 
               {/* all movies */}
-              <section className="flex flex-col gap-4 sm:gap-6">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#b9b9b9]">All Movies</h3>
+              <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:px-12">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">All Movies</h3>
 
                 {isLoading ? (
                   <Spinner />

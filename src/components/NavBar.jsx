@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav className="flex items-center justify-between w-full">
       {/* Logo or Title */}
       <motion.h1
-        className="text-xl sm:text-2xl font-bold text-[#b9b9b9] tracking-tight"
+        className="md:hidden sm:text-2xl font-bold tracking-tight"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -34,7 +34,7 @@ const NavBar = () => {
           <a
             key={link.label}
             href={link.href}
-            className="font-semibold text-[#7d7d7d] hover:text-[#b9b9b9] hover:scale-105 transition-transform duration-300 ease-linear"
+            className="font-semibold hover:text-[#b9b9b9] hover:scale-105 transition-transform duration-300 ease-linear"
           >
             {link.label}
           </a>
@@ -44,7 +44,7 @@ const NavBar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden text-[#b9b9b9] focus:outline-none"
+        className="md:hidden focus:outline-none"
       >
         {isOpen ? <HiX size={26} /> : <HiOutlineMenu size={26} />}
       </button>
@@ -58,7 +58,7 @@ const NavBar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 w-full bg-[#141414]/95 backdrop-blur-md border-t border-[#2a2a2a] md:hidden z-40"
+            className="absolute top-16 left-0 w-full backdrop-blur-md md:hidden z-40"
           >
             <ul className="flex flex-col items-center py-4 gap-4">
               {navLinks.map((link) => (
@@ -69,7 +69,7 @@ const NavBar = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-[#d1d1d1] text-lg font-medium hover:text-white transition-colors"
+                    className="text-lg font-medium hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
