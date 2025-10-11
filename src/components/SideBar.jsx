@@ -27,7 +27,7 @@ const SideBar = () => {
     <>
       {/* ===== Desktop Sidebar ===== */}
       <div className="hidden md:flex sticky top-0 h-screen w-16 flex-col items-center gap-4 py-6">
-        <h1 className="text-2xl font-bold">S</h1>
+        <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500">S</h1>
 
         <nav className="flex flex-col items-center gap-6 mt-4">
           {navLinks.map((link, i) => (
@@ -70,7 +70,7 @@ const SideBar = () => {
             className="flex flex-col items-center hover:text-[#e50914] transition-colors"
           >
             {link.icon}
-            <span className="text-[10px] mt-1">{link.label}</span>
+            <span className="text-[12px] font-bold mt-1">{link.label}</span>
           </a>
         ))}
 
@@ -84,24 +84,17 @@ const SideBar = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-50 bg-[#0c0c0c] flex flex-col items-center justify-center space-y-6"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center space-y-6"
           >
 
             <div className="flex gap-6 mt-10">
-              <a href="#" className="text-xl text-[#7d7d7d] hover:text-[#e50914]">
+              <a href="#" className="text-2xl font-bold hover:text-[#e50914]">
                 <RiSettings6Fill />
               </a>
-              <a href="#" className="text-xl text-[#7d7d7d] hover:text-[#e50914]">
+              <a href="#" className="text-2xl font-bold hover:text-[#e50914]">
                 <FaRegUser />
               </a>
             </div>
-
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-3xl text-[#b9b9b9] hover:text-[#e50914] transition-all"
-            >
-              <IoClose />
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

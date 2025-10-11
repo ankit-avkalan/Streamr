@@ -126,7 +126,7 @@ const App = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="min-h-screen flex flex-col text-white scroll-smooth"
+        className="min-h-screen flex flex-col text-white scroll-smooth font-tracking-normal"
       >
         <div className="flex w-full">
 
@@ -146,7 +146,7 @@ const App = () => {
           <div className="flex-1 w-full">
             {/* nav bar */}
             <motion.header 
-              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8"
+              className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8 bg-black"
               initial={{ y: -40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -175,7 +175,7 @@ const App = () => {
               >
                 <div className="relative flex flex-col px-6 sm:px-10 md:px-20 mb-10 sm:mb-16">
                   <motion.h1 
-                    className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4"
+                    className="text-5xl sm:text-3xl md:text-4xl font-extrabold mb-4"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -183,7 +183,7 @@ const App = () => {
                     {selectedMovie ? selectedMovie.title : "The House of The Dragon"}
                   </motion.h1>
                   <motion.p 
-                    className="max-w-xl sm:max-w-2xl text-sm sm:text-base"
+                    className="max-w-xl sm:max-w-2xl text-l sm:text-base font-mediumbold"
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -196,12 +196,12 @@ const App = () => {
                 </div>
               </motion.section>
               
-              {/* treding movies */}
+              {/* trending movies */}
               <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:12">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">Trending Movies</h3>
+                <h3 className="font-bold text-3xl md:text-3xl sm:text-2xl">Trending Movies</h3>
                 {trendingMovies.length > 0 && (
                   <motion.ul 
-                    className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide"
+                    className="flex gap-4 sm:gap-6 overflow-x-auto"
                     initial="hidden"
                     animate="visible"
                     variants={{
@@ -229,7 +229,7 @@ const App = () => {
 
               {/* all movies */}
               <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:px-12">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">All Movies</h3>
+                <h3 className="font-bold text-3xl md:text-3xl sm:text-2xl">All Movies</h3>
 
                 {isLoading ? (
                   <Spinner />

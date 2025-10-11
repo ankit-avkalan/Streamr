@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +13,10 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between w-full">
+    <nav className="flex items-center justify-between w-full tracking-normal">
       {/* Logo or Title */}
       <motion.h1
-        className="md:hidden sm:text-2xl font-bold tracking-tight"
+        className="text-2xl md:hidden font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -46,7 +47,7 @@ const NavBar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden focus:outline-none"
       >
-        {isOpen ? <HiX size={26} /> : <HiOutlineMenu size={26} />}
+        {isOpen ? <HiX size={26} /> : <BsThreeDotsVertical size={26} />}
       </button>
 
       {/* Mobile Menu */}
@@ -58,7 +59,7 @@ const NavBar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 w-full backdrop-blur-md md:hidden z-40"
+            className="absolute top-16 left-0 w-full h-screen backdrop-blur-md md:hidden z-40"
           >
             <ul className="flex flex-col items-center py-4 gap-4">
               {navLinks.map((link) => (
@@ -69,7 +70,7 @@ const NavBar = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-lg font-medium hover:text-white transition-colors"
+                    className="text-lg font-medium hover:text-grey transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}

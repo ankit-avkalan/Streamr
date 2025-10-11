@@ -21,7 +21,7 @@ const MovieCard = ({ movie, onSelectMovie }) => {
       />
       
       <div className="px-1">
-        <p className="text-sm sm:text-base md:text-lg font-semibold text-[#b9b9b9] line-clamp-1">
+        <p className="text-sm sm:text-base md:text-lg font-semibold line-clamp-1">
           {title}
         </p>
 
