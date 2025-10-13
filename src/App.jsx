@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdOutlinePlayArrow } from 'react-icons/md'
 import { AnimatePresence } from 'framer-motion'
 
 import Search from './components/Search'
