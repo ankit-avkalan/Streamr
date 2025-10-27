@@ -11,7 +11,13 @@ const MovieCard = ({ movie, onSelectMovie }) => {
 
   return (
     <div 
-      onClick={() => onSelectMovie(movie)} 
+      onClick={() => {
+        onSelectMovie(movie);
+        document.getElementById('hero').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }} 
       className="flex flex-col gap-2 sm:gap-3 hover:scale-95 duration-300 ease-linear cursor-pointer"
     >
       <img 

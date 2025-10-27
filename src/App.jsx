@@ -1,5 +1,6 @@
 import React from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Search from './components/Search'
 import Spinner from './components/Spinner'
@@ -8,9 +9,13 @@ import Footer from './components/Footer'
 import SideBar from './components/SideBar'
 import NavBar from './components/NavBar'
 import Preloader from './components/Preloader'
-import Hero from './components/Hero'
-import TrendingMovies from './components/TrendingMovies'
-import AllMovies from './components/AllMovies'
+
+import Home from './pages/Home'
+import Favourite from './pages/Favourite'
+import Profile from './pages/Profile'
+import TVShows from './pages/TVShows'
+import Trending from './pages/Trending'
+import MovieDetail from './pages/MovieDetail'
 
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'react-use'
@@ -65,8 +70,15 @@ const App = () => {
 
       setMoviesList(data.results || []);
 
+      // If this was a search query, update search counts and set selected movie.
       if (query && data.results.length > 0) {
         await updateSearchCount(query, data.results[0]);
+        setSelectedMovie(data.results[0]);
+      }
+
+      // If no query (initial load / discover), auto-select the first movie so
+      // the Hero shows the same movie as the first item in AllMovies.
+      if (!query && data.results && data.results.length > 0) {
         setSelectedMovie(data.results[0]);
       }
       
@@ -114,37 +126,49 @@ const App = () => {
   }
 
   return (
-    <AnimatePresence mode="wait">
-      <div className="min-h-screen flex flex-col text-white scroll-smooth font-tracking-normal">
+    <Router>
+      <div className="min-h-screen flex flex-col text-white scroll-smooth font-tracking-normal bg-black">
         <div className="flex w-full">
           <SideBar />
-          <div>
-            <header className="sticky top-0 z-10 flex flex-wrap md:flex-nowrap items-center py-4 px-4 sm:px-8 md:px-12 w-full gap-4 md:gap:8 bg-black">
-              {/* nav bar */}
-              <NavBar />
-              <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <div className="flex-1">
+            <header className="sticky top-0 z-10 bg-black w-full py-4 px-4 sm:px-8 md:px-12">
+              <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between">
+                <div className="w-full block md:inline-block">
+                  <NavBar />
+                </div>
+                <div className="w-full md:w-auto mt-3 md:mt-0">
+                  <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                </div>
+              </div>
             </header>
 
-            <main className="flex flex-col gap-12">
-              {/* hero section  */}
-              < Hero selectedMovie={selectedMovie} />             
-              {/* trending movies */}
-              < TrendingMovies trendingMovies={trendingMovies} />
-              {/* all movies */}
-              <AllMovies
-                moviesList={moviesList}
-                isLoading={isLoading}
-                errorMessage={errorMessage}
-                onSelectMovie={setSelectedMovie}
-              />
+
+
+
+            <main className="flex flex-col gap-12 px-4 sm:px-8 md:px-12">
+              <Routes>
+                <Route path="/" element={
+                  <Home 
+                    selectedMovie={selectedMovie}
+                    trendingMovies={trendingMovies}
+                    moviesList={moviesList}
+                    isLoading={isLoading}
+                    errorMessage={errorMessage}
+                    onSelectMovie={setSelectedMovie}
+                  />
+                } />
+                <Route path="/movie/:id" element={<MovieDetail />} />
+                <Route path="/tv-shows" element={<TVShows />} />
+                <Route path="/trending" element={<Trending />} />
+                <Route path="/favourite" element={<Favourite />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
             </main>
           </div>
         </div>
-
         <Footer />       
       </div>
-    </AnimatePresence>
-     
+    </Router>
   )
 }
 
