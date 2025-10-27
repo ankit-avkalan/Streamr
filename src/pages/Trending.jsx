@@ -41,9 +41,9 @@ const Trending = () => {
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold">Trending</h2>
+    <div className="w-full py-8">
+      <div className="flex justify-between items-center mb-8 px-4 sm:px-6 md:px-8">
+        <h2 className="text-2xl sm:text-3xl font-bold">Trending</h2>
         <div className="flex gap-4">
           <button
             className={`px-4 py-2 rounded-full transition-all ${
@@ -69,7 +69,7 @@ const Trending = () => {
       </div>
       
       <motion.div
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2 sm:px-3 md:px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

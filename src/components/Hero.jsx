@@ -53,7 +53,7 @@ const Hero = ({ selectedMovie }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             id="hero"
-            className="relative flex flex-col justify-end bg-cover bg-center bg-no-repeat h-screen"
+            className="relative flex flex-col justify-end bg-cover bg-center bg-no-repeat min-h-[70vh] sm:h-screen"
             style={{
                 backgroundImage: `linear-gradient(to top, #000000, rgba(0, 0, 0, 0.4)), url(${
                 displayMovie
@@ -62,14 +62,14 @@ const Hero = ({ selectedMovie }) => {
                 })`,
             }}
         >
-            <div className="relative flex flex-col sm:px-10 md:px-20 mb-10 sm:mb-16">
+            <div className="relative flex flex-col px-4 sm:px-6 md:px-8 mb-10 sm:mb-16">
                 <motion.div 
                     className="flex flex-col gap-4"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
                 >
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold">
                         {displayMovie ? displayMovie.title : "Loading..."}
                     </h1>
                     
@@ -104,9 +104,8 @@ const Hero = ({ selectedMovie }) => {
                     transition={{ delay: 0.7 }}
                 >
                     <button 
-                        className="flex items-center gap-2 px-6 py-3 bg-red-600 rounded-md hover:bg-red-700 transition-colors"
+                        className="flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3 bg-red-600 rounded-full text-sm hover:bg-red-700 transition-colors"
                         onClick={() => {
-                            // Handle watch now action
                             const trailer = displayMovie?.videos?.results?.find(
                                 v => v.type === "Trailer" || v.type === "Teaser"
                             );
@@ -116,7 +115,7 @@ const Hero = ({ selectedMovie }) => {
                         }}
                     >
                         <FaPlay />
-                        <span className="font-semibold">Watch Now</span>
+                        <span className="font-semibold">Watch Trailer</span>
                     </button>
                 </motion.div>
             </div>

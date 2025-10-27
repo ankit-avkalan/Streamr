@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { BsThreeDotsVertical, BsX } from "react-icons/bs";
 
@@ -10,6 +10,16 @@ const NavBar = () => {
     { label: "TV Shows", href: "/tv-shows", description: "Explore TV series" },
     { label: "Trending", href: "/trending", description: "What's popular now" },
   ];
+
+  useEffect(() => {
+    // Lock body scroll when mobile menu is open to prevent layout jumps on keyboard open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
 
   return (
     <nav className="flex items-center justify-between w-full tracking-normal">
