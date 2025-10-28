@@ -8,7 +8,7 @@ const TrendingMovies = ({ trendingMovies }) => {
 
   return (
     <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-8 md:12">
-      <h3 className="font-bold text-3xl md:text-3xl sm:text-2xl">
+      <h3 className="font-bold text-2xl sm:text-3xl md:text-3xl px-4 sm:px-6 md:px-8">
         Trending Movies
       </h3>
       {trendingMovies.length > 0 && (
