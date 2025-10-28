@@ -1,46 +1,57 @@
+// NavBar.jsx
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { BsThreeDotsVertical, BsX } from "react-icons/bs";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
-    { label: "Movies", href: "/", description: "Browse all movies" },
-    { label: "TV Shows", href: "/tv-shows", description: "Explore TV series" },
-    { label: "Trending", href: "/trending", description: "What's popular now" },
+    { label: "Movies", href: "/" },
+    { label: "TV Shows", href: "/tv-shows" },
+    { label: "Trending", href: "/trending" },
   ];
 
   useEffect(() => {
-    // Lock body scroll when mobile menu is open to prevent layout jumps on keyboard open
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
   }, [isOpen]);
 
+  const linkBase =
+    "relative px-2 py-1 font-medium transition-colors duration-300 hover:text-white focus-visible:outline-none";
+  const activeStyle = "text-white after:w-full";
+
   return (
-    <nav className="flex items-center justify-between w-full tracking-normal">
-      {/* Logo or Title */}
-      <h1
-        className="text-2xl md:hidden font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500"
+    <motion.nav
+      className="flex items-center justify-between w-full py-3"
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
+      {/* Logo — shown only on small screens (mobile). Hidden on md and larger */}
+      <Link
+        to="/"
+        className="block md:hidden text-2xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500 bg-clip-text text-transparent tracking-tight"
       >
         Streamr
-      </h1>
+      </Link>
 
-      {/* Desktop Nav */}
-      <div
-        className="hidden md:flex gap-8 text-base lg:text-lg"
-      >
+
+      {/* Desktop Links */}
+      <div className="hidden md:flex items-center gap-8 text-gray-300">
         {navLinks.map((link) => (
           <Link
             key={link.label}
             to={link.href}
-            className="font-semibold hover:text-[#b9b9b9] hover:scale-105 transition-transform duration-300 ease-linear"
+            className={`${linkBase} ${
+              location.pathname === link.href ? activeStyle : ""
+            }`}
           >
             {link.label}
+            {/* Animated underline */}
+            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 transition-all duration-300 group-hover:w-full" />
           </Link>
         ))}
       </div>
@@ -48,30 +59,49 @@ const NavBar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden focus:outline-none"
+        className="md:hidden text-gray-200 hover:text-white transition-colors"
+        aria-label="Toggle menu"
       >
-        {isOpen ? <BsX size={26} /> : <BsThreeDotsVertical size={26} />}
+        {isOpen ? <BsX size={26} /> : <BsThreeDotsVertical size={22} />}
       </button>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-black/95 backdrop-blur-sm md:hidden z-40 border-t border-gray-800">
-          <div className="p-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-3 px-4 hover:bg-gray-800 rounded-lg transition-colors"
-              >
-                <span className="text-lg font-medium">{link.label}</span>
-                <p className="text-sm text-gray-400">{link.description}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-[68px] left-0 w-full bg-black/95 backdrop-blur-sm border-t border-gray-800 md:hidden z-40"
+          >
+            <div className="flex flex-col p-4 space-y-3">
+              {navLinks.map((link) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 }}
+                >
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors ${
+                      location.pathname === link.href
+                        ? "bg-gray-800 text-white"
+                        : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 
