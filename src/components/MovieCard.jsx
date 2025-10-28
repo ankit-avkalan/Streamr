@@ -11,13 +11,21 @@ const MovieCard = ({ movie, onSelectMovie }) => {
 
   return (
     <div 
-      onClick={() => onSelectMovie(movie)} 
+      onClick={() => {
+        onSelectMovie(movie);
+        document.getElementById('hero').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }} 
       className="flex flex-col gap-2 sm:gap-3 hover:scale-95 duration-300 ease-linear cursor-pointer"
     >
       <img 
         className="w-full aspect-[2/3] rounded-xl object-cover bg-center" 
         src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : '/no_movie.png'} 
-        alt={title} 
+        alt={title}
+        loading="lazy"
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
       />
       
       <div className="px-1">
